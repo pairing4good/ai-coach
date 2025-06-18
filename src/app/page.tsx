@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { ConversationsContext } from "@/providers/ConversationsProvider";
-import { View } from "@aws-amplify/ui-react";
+import { Card, Text, View } from "@aws-amplify/ui-react";
 import { AIConversation } from "@aws-amplify/ui-react-ai";
 import { useRouter } from "next/navigation";
 
@@ -36,6 +36,11 @@ export default function Home() {
   return (
     <View padding="large" flex="1">
       <AIConversation
+      welcomeMessage={
+        <Card variation="outlined">
+          <Text>I'm your KnightMoves Classroom AI Coach, to get started please paste your GitHub Repository url in the chat.</Text>
+        </Card>
+      }
         messages={[]}
         handleSendMessage={handleSendMessage}
         isLoading={isNavigating}
